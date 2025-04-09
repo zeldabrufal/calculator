@@ -75,6 +75,22 @@ buttonBack.addEventListener("click", () =>{
 
 });
 
+const BtnPosNeg = document.querySelector(".BtnPosNeg");
+
+
+BtnPosNeg.addEventListener("click", () => {
+
+    let inputChainLast = inputChain.pop();      
+    let flippedNum = inputChainLast * -1;         
+    inputChain.push(flippedNum);
+    updateOutput();
+
+
+
+});
+
+
+
 
 
 
@@ -151,6 +167,9 @@ function clear(){
     updateOutput();
     
 }
+
+
+
 
 
 

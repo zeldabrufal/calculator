@@ -20,7 +20,25 @@ body {
     background-color: rgb(97, 95, 95);
     width: 400px;
     height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30px;
+    color: pink;
+        
 }
+
+
+
+.outputContBorder {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(218, 22, 55);
+    
+}
+
+
 .BigBtnContainer{
     display: grid;
     width: 400px;
@@ -60,13 +78,23 @@ body {
     background-color: rgb(255, 0, 85);
 }
 
-.BtnClear, .BtnEqual {
+.BtnClear, .BtnEqual, .BtnPosNeg {
     background-color: rgb(149, 232, 195);
 
 
 }
 
 .outputCont {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30px;
+    color: pink;
+    
+}
+
+
+.outputContBorder {
     display: flex;
     justify-content: flex-end;
     align-items: center;
