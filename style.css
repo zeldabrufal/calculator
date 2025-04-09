@@ -48,9 +48,21 @@ body {
     width: 400px;
     height: 400px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     
 }
+
+
+.TopBtnContainer {
+    display: flex; 
+    height: 100px;
+    width: 100%;
+}
+
+.Btndivide {
+    max-width: 100px;
+}
+
 
 .SmallBtnContainer{
     display: grid;

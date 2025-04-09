@@ -77,29 +77,17 @@ buttonClear.addEventListener("click", () =>{
 
 });
 
-const buttonBack = document.querySelector(".BtnBack")
 
-buttonBack.addEventListener("click", () =>{
-    inputNums.splice(-1);
-    inputChain.splice(-1);
-    let inputChainLast = inputChain[inputChain.length - 1];
-    console.log("the chain of input before operation" + "  "+ inputNums);
 
-    updateOutput();
-
-    
-
-});
 
 const BtnPosNeg = document.querySelector(".BtnPosNeg");
 
 
 BtnPosNeg.addEventListener("click", () => {
-
-    let inputChainLast = inputChain.pop();      
-    let flippedNum = inputChainLast * -1;         
-    inputChain.push(flippedNum);
-    updateOutput();
+      
+    inputNum *= -1;         
+    updateNumEnt();
+    console.log("input num is"+" "+ inputNum)
 
 
 
