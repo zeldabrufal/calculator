@@ -4,24 +4,35 @@ let operation = "null";
 inputChain.push(inputNum);
 
 
+const outputCont = document.querySelector('.outputCont');
+ 
+updateOutput();
+
+
 const buttonsNum = document.querySelectorAll(".numberBtn");
 
 
 
 buttonsNum.forEach(button => {
     button.addEventListener("click", () => {
-        inputNum = parseInt(button.classList[1].replace("Btn", ""));
+        inputNum = parseInt(button.classList[2].replace("Btn", ""));
         inputChain.push(inputNum);
         console.log(inputChain[inputChain.length - 1]);
+        updateOutput();
     });
 });
+
+
+
 
 const buttonsOperation = document.querySelectorAll(".operationBtn")
 
 buttonsOperation.forEach(button => {
     button.addEventListener("click", () => {
-        operation = button.classList[1].replace("Btn", "");
+        operation = button.classList[2].replace("Btn", "");
         console.log(operation);
+        updateOutput();
+
     });
 });
 
@@ -37,7 +48,22 @@ const buttonClear = document.querySelector(".BtnClear")
 
 buttonClear.addEventListener("click", () =>{
     clear();
+    
+
 });
+
+const buttonBack = document.querySelector(".BtnBack")
+
+buttonBack.addEventListener("click", () =>{
+    inputChain.splice(-1);
+    let inputChainLast = inputChain[inputChain.length - 1];
+    updateOutput();
+
+    
+
+});
+
+
 
 
 
@@ -55,7 +81,7 @@ const operationFunctions = {
 
 
 function noOp(){
-    console.log("NO OPERATION CHOSEN")
+    console.log("NO OPERATION CHOSEN");
 }
 
 
@@ -69,6 +95,7 @@ let inputChainLast = inputChain[inputChain.length - 1];
 let inputChainSecondLast = inputChain[inputChain.length - 2];
     inputChain.push(inputChainLast + inputChainSecondLast);
     console.log(inputChain[inputChain.length - 1]);
+    updateOutput();
 }
 
 
@@ -79,6 +106,7 @@ let inputChainSecondLast = inputChain[inputChain.length - 2];
    
     inputChain.push(inputChainSecondLast - inputChainLast);
     console.log(inputChain[inputChain.length - 1]);
+    updateOutput();
 }
 
 
@@ -89,6 +117,7 @@ let inputChainSecondLast = inputChain[inputChain.length - 2];
    
     inputChain.push(inputChainSecondLast * inputChainLast);
     console.log(inputChain[inputChain.length - 1]);
+    updateOutput();
 }
 
 function divide(){
@@ -98,15 +127,21 @@ function divide(){
        
         inputChain.push(inputChainSecondLast / inputChainLast);
         console.log(inputChain[inputChain.length - 1]);
+        updateOutput();
     }
     
 function clear(){
     inputChain = [];
     inputChain.push(0);
     console.log(inputChain[inputChain.length - 1]);
+    updateOutput();
     
 }
 
 
 
 
+function updateOutput() {
+    let inputChainLast = inputChain[inputChain.length - 1];
+    outputCont.textContent = inputChainLast;
+}
