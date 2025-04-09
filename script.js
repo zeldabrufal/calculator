@@ -1,6 +1,10 @@
 let inputChain = [];
+let typingNum= [];
+let inputNums = [];
 let inputNum = 0;
 let operation = "null";
+
+
 inputChain.push(inputNum);
 
 
@@ -15,10 +19,14 @@ const buttonsNum = document.querySelectorAll(".numberBtn");
 
 buttonsNum.forEach(button => {
     button.addEventListener("click", () => {
-        inputNum = parseInt(button.classList[2].replace("Btn", ""));
+        typingNum = parseInt(button.classList[2].replace("Btn", ""));
+        inputNums.push(typingNum);
+        inputNum = parseInt(inputNums.join(''));
+        console.log("current input number" + "  " + inputNum);
+        console.log("the chain of input before operation" + "  "+ inputNums);
         inputChain.push(inputNum);
-        console.log(inputChain[inputChain.length - 1]);
         updateOutput();
+        
     });
 });
 
@@ -29,6 +37,7 @@ const buttonsOperation = document.querySelectorAll(".operationBtn")
 
 buttonsOperation.forEach(button => {
     button.addEventListener("click", () => {
+        inputNums = [];
         operation = button.classList[2].replace("Btn", "");
         console.log(operation);
         updateOutput();
@@ -55,8 +64,11 @@ buttonClear.addEventListener("click", () =>{
 const buttonBack = document.querySelector(".BtnBack")
 
 buttonBack.addEventListener("click", () =>{
+    inputNums.splice(-1);
     inputChain.splice(-1);
     let inputChainLast = inputChain[inputChain.length - 1];
+    console.log("the chain of input before operation" + "  "+ inputNums);
+
     updateOutput();
 
     
@@ -131,6 +143,8 @@ function divide(){
     }
     
 function clear(){
+    inputNum = [];
+    inputNums = [];
     inputChain = [];
     inputChain.push(0);
     console.log(inputChain[inputChain.length - 1]);
