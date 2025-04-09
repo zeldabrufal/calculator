@@ -1,6 +1,6 @@
 let inputChain = [];
 let inputNum = 0;
-let operation;
+let operation = "null";
 inputChain.push(inputNum);
 
 
@@ -22,19 +22,31 @@ buttonsOperation.forEach(button => {
     button.addEventListener("click", () => {
         operation = button.classList[1].replace("Btn", "");
         console.log(operation);
-
-if (operationFunctions[operation]) {
-    operationFunctions[operation]();  
-} 
     });
 });
+
+const buttonEqual = document.querySelector(".BtnEqual")
+
+buttonEqual.addEventListener("click", () =>{
+    if (operationFunctions[operation]) {
+        operationFunctions[operation]();  
+    } 
+});
+
+const buttonClear = document.querySelector(".BtnClear")
+
+buttonClear.addEventListener("click", () =>{
+    clear();
+});
+
 
 
 const operationFunctions = {
     add: add,
     subtract: subtract,
     multiply: multiply,
-    divide: divide
+    divide: divide,
+    noOp: noOp,
 };
 
 
@@ -42,7 +54,9 @@ const operationFunctions = {
 
 
 
-
+function noOp(){
+    console.log("NO OPERATION CHOSEN")
+}
 
 
 
@@ -89,7 +103,6 @@ function divide(){
 function clear(){
     inputChain = [];
     inputChain.push(0);
-
     console.log(inputChain[inputChain.length - 1]);
     
 }
