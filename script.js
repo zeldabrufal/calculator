@@ -26,7 +26,7 @@ buttonsNum.forEach(button => {
 
         console.log("input num is " + " " + inputNum);
 
-        updateOutput();
+        updateNumEnt();
         
     });
 });
@@ -65,6 +65,8 @@ buttonEqual.addEventListener("click", () =>{
     if (operationFunctions[operation]) {
         operationFunctions[operation]();  
     } 
+
+    inputNum = inputChain[inputChain.length - 1];
 });
 
 const buttonClear = document.querySelector(".BtnClear")
@@ -194,4 +196,9 @@ function clear(){
 function updateOutput() {
     let inputChainLast = inputChain[inputChain.length - 1];
     outputCont.textContent = inputChainLast;
+}
+
+function updateNumEnt() {
+    
+    outputCont.textContent = inputNum;
 }
